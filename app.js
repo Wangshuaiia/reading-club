@@ -37,7 +37,7 @@
   };
   const addLinks = (container, session) => {
     container.replaceChildren();
-    const choices = [["readingUrl", "Reading material", false], ["slides", "Download slides", true], ["pdf", "View PDF ↗", false]];
+    const choices = [["readingUrl", session.readingLabel || "Reading material", false], ["slides", "Download slides", true], ["pdf", "View PDF ↗", false]];
     for (const [key, label, download] of choices) {
       const url = safeUrl(session[key]);
       if (!url) continue;
@@ -71,6 +71,23 @@
     today.setHours(0, 0, 0, 0);
     $("schedule-note").hidden = !date || date >= today;
     addLinks($("next-links"), next);
+    const references = $("next-references");
+    const list = make("ul");
+    for (const reference of next.references || []) {
+      const url = safeUrl(reference.url);
+      if (!url) continue;
+      const link = make("a", "", reference.title || "Related reading");
+      link.href = url.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      const item = make("li");
+      item.append(link);
+      list.append(item);
+    }
+    if (list.childElementCount) {
+      references.append(make("h4", "", "Further reading"), list);
+      references.hidden = false;
+    }
   } else {
     $("next-title").textContent = "Next session coming soon";
   }

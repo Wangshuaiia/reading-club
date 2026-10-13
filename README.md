@@ -4,7 +4,7 @@ A simple website for a reading club that meets every two weeks. Browse the next 
 
 **Website:** <https://wangshuaiia.github.io/reading-club/>
 
-The archive contains five PDF presentations from August to October 2026. The next session has not been announced yet. The dates, titles, and presenters in the editing examples below are placeholders; replace them with confirmed details.
+The archive contains five PDF presentations from August to October 2026. The next session introduces Jev; its date and time are to be announced. The dates, titles, and presenters in the editing examples below are placeholders; replace them with confirmed details.
 
 ## Files
 
@@ -40,6 +40,14 @@ next: {
 Use your actual date, time, and time zone. Dates are displayed in English with the month written out, for example **27 October 2026**, to avoid ambiguity for international readers.
 
 `location` appears as plain text; visitors can copy a meeting URL. `readingUrl` creates a clickable reading-material button. Use `next: null` when the next session has not been announced.
+
+You can set `readingLabel: "Official blog"` to customize the reading-material button, and add a `references` array for further reading:
+
+```js
+references: [
+  { title: "Related paper title", url: "https://arxiv.org/abs/example" }
+],
+```
 
 ## Add a past session
 

@@ -36,6 +36,11 @@ dt { color: var(--muted); } dd { margin: 0; overflow-wrap: anywhere; }
 .button { display: inline-block; padding: 8px 16px; font-size: 13px; border: 1px solid #afbaaa; border-radius: 5px; background: #fafbf6; }
 .button:hover { background: #f0f3e9; }
 .schedule-note { font-size: 13px; color: #784823; margin: 0 0 15px; }
+.reading-list { margin-top: 24px; padding-top: 18px; border-top: 1px solid #c4cebe; font-size: 13px; }
+.reading-list h4 { margin: 0 0 9px; font-size: 13px; }
+.reading-list ul { margin: 0; padding-left: 18px; }
+.reading-list li { margin: 8px 0; overflow-wrap: anywhere; }
+.reading-list a { text-decoration: underline; text-underline-offset: 3px; }
 .archive { margin-top: 68px; }
 .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
 .section-heading .eyebrow { color: var(--muted); margin-bottom: 9px; }
