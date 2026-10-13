@@ -13,7 +13,7 @@ a:hover { text-decoration: underline; text-underline-offset: 5px; }
 nav { display: flex; gap: 26px; font-size: 14px; }
 .intro { position: relative; padding: 72px 0 54px; }
 .eyebrow { font-size: 11px; letter-spacing: 2px; font-weight: 700; margin: 0 0 16px; }
-h1 { font-family: "Songti SC", "Noto Serif SC", Georgia, serif; font-weight: 500; font-size: clamp(36px, 5.5vw, 62px); letter-spacing: -1.5px; line-height: 1.25; margin: 0 0 24px; }
+h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: clamp(36px, 5.5vw, 62px); letter-spacing: -1.5px; line-height: 1.25; margin: 0 0 24px; }
 .lead { max-width: 630px; color: var(--muted); font-size: 16px; margin: 0 0 22px; }
 .text-link { font-size: 14px; border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
 .text-link span { margin-left: 30px; }
@@ -24,13 +24,13 @@ h1 { font-family: "Songti SC", "Noto Serif SC", Georgia, serif; font-weight: 500
 .next { display: grid; grid-template-columns: 240px 1fr; background: var(--green); border: 1px solid #d1d9c9; border-radius: 10px; padding: 34px; gap: 34px; }
 .next-side { border-right: 1px solid #c4cebe; padding-right: 24px; }
 .next .eyebrow { color: #5d7353; margin-bottom: 8px; }
-h2 { margin: 0; font-family: "Songti SC", "Noto Serif SC", Georgia, serif; font-size: 28px; font-weight: 600; line-height: 1.4; }
+h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 28px; font-weight: 600; line-height: 1.4; }
 .date { font-size: 20px; font-weight: 600; margin: 30px 0 0; }
 .muted { color: var(--muted); font-size: 13px; margin: 6px 0; }
 h3 { font-size: 23px; font-weight: 600; line-height: 1.45; margin: 0 0 12px; overflow-wrap: anywhere; }
 .summary { color: #57655d; font-size: 14px; margin: 0 0 20px; white-space: pre-line; overflow-wrap: anywhere; }
 .meta { font-size: 13px; margin: 0 0 26px; display: grid; gap: 6px; }
-.meta div { display: grid; grid-template-columns: 58px 1fr; gap: 10px; }
+.meta div { display: grid; grid-template-columns: 80px 1fr; gap: 10px; }
 dt { color: var(--muted); } dd { margin: 0; overflow-wrap: anywhere; }
 .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .button { display: inline-block; padding: 8px 16px; font-size: 13px; border: 1px solid #afbaaa; border-radius: 5px; background: #fafbf6; }

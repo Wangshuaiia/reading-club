@@ -21,9 +21,9 @@
   };
   const dateLabel = (value) => {
     const date = parseDate(value);
-    return date ? new Intl.DateTimeFormat("zh-CN", { year: "numeric", month: "long", day: "numeric" }).format(date) : "日期待定";
+    return date ? new Intl.DateTimeFormat("en-GB", { year: "numeric", month: "long", day: "numeric" }).format(date) : "Date to be announced";
   };
-  // 支持站内相对路径和 http(s) 链接，避免执行意外填入的脚本链接。
+  // Allow relative paths and HTTP(S) links; reject accidental script URLs.
   const safeUrl = (value) => {
     if (typeof value !== "string" || !value.trim()) return null;
     const path = value.trim();
@@ -32,12 +32,12 @@
       const url = new URL(path, document.baseURI);
       if (["http:", "https:"].includes(url.protocol)) return url;
       if (location.protocol === "file:" && url.protocol === "file:") return url;
-    } catch { /* 无效链接不显示 */ }
+    } catch { /* Invalid links are not shown. */ }
     return null;
   };
   const addLinks = (container, session) => {
     container.replaceChildren();
-    const choices = [["readingUrl", "阅读材料", false], ["slides", "下载 PPT", true], ["pdf", "查看 PDF ↗", false]];
+    const choices = [["readingUrl", "Reading material", false], ["slides", "Download slides", true], ["pdf", "View PDF ↗", false]];
     for (const [key, label, download] of choices) {
       const url = safeUrl(session[key]);
       if (!url) continue;
@@ -47,20 +47,20 @@
       else { a.target = "_blank"; a.rel = "noopener noreferrer"; }
       container.append(a);
     }
-    if (!container.childElementCount) container.append(make("span", "muted", "资料待上传"));
+    if (!container.childElementCount) container.append(make("span", "muted", "Materials coming soon"));
   };
   document.title = club.name || "Reading Club";
   document.querySelectorAll("[data-club-name]").forEach((el) => { el.textContent = club.name || "Reading Club"; });
-  $("club-description").textContent = club.description || "每两周一起阅读与讨论。";
+  $("club-description").textContent = club.description || "Read and discuss together every two weeks.";
   $("demo-note").hidden = !club.demo;
   if (club.next) {
     const next = club.next;
     const date = parseDate(next.date);
     $("next-date").textContent = dateLabel(next.date);
-    $("next-weekday").textContent = date ? new Intl.DateTimeFormat("zh-CN", { weekday: "long" }).format(date) : "";
-    $("next-title").textContent = next.title || "主题待定";
-    $("next-summary").textContent = next.summary || "阅读计划即将公布。";
-    for (const [label, value] of [["分享人", next.speaker], ["时间", next.time], ["地点", next.location]]) {
+    $("next-weekday").textContent = date ? new Intl.DateTimeFormat("en-GB", { weekday: "long" }).format(date) : "";
+    $("next-title").textContent = next.title || "Topic to be announced";
+    $("next-summary").textContent = next.summary || "Our reading plan is coming soon.";
+    for (const [label, value] of [["Presenter", next.speaker], ["Time", next.time], ["Location", next.location]]) {
       if (value) {
         const group = make("div");
         group.append(make("dt", "", label), make("dd", "", value));
@@ -72,7 +72,7 @@
     $("schedule-note").hidden = !date || date >= today;
     addLinks($("next-links"), next);
   } else {
-    $("next-title").textContent = "下一期安排即将公布";
+    $("next-title").textContent = "Next session coming soon";
   }
   const sessions = [...club.archive].sort((a, b) => (parseDate(b.date)?.getTime() || 0) - (parseDate(a.date)?.getTime() || 0));
   function renderArchive() {
@@ -83,8 +83,8 @@
       const article = make("article", "archive-card");
       const date = make("p", "archive-date", dateLabel(session.date));
       const body = make("div", "archive-body");
-      body.append(make("h3", "", session.title || "未命名分享"));
-      body.append(make("p", "speaker", `分享人 · ${session.speaker || "待填写"}`));
+      body.append(make("h3", "", session.title || "Untitled session"));
+      body.append(make("p", "speaker", `Presenter · ${session.speaker || "To be announced"}`));
       if (session.summary) body.append(make("p", "summary", session.summary));
       const tags = make("div", "tags");
       (session.tags || []).forEach((tag) => tags.append(make("span", "tag", tag)));
@@ -95,9 +95,9 @@
       fragment.append(article);
     });
     $("archive-list").replaceChildren(fragment);
-    $("archive-count").textContent = `${filtered.length} / ${sessions.length} ${club.demo ? "份示例记录" : "次分享"}`;
+    $("archive-count").textContent = `${filtered.length} of ${sessions.length} ${club.demo ? "sample " : ""}${sessions.length === 1 ? "session" : "sessions"}`;
     $("empty-state").hidden = filtered.length > 0;
-    $("empty-state").textContent = query ? "没有找到相关分享，试试其他关键词。" : "还没有往期记录，第一次讨论结束后就可以添加。";
+    $("empty-state").textContent = query ? "No matching sessions. Try a different keyword." : "Past sessions and their materials will appear here after our first discussion.";
   }
   $("search").addEventListener("input", renderArchive);
   renderArchive();

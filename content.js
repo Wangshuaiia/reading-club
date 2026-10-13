@@ -1,12 +1,12 @@
-// 平时只需要修改这个文件，再把 PPT / PDF 上传到 slides 文件夹。
-// 正式网站先显示空日程；填写方法和完整示例见 README.md。
-// 日期格式：YYYY-MM-DD。链接留空时，对应按钮不会显示。
+// Edit this file for regular updates, and upload PPT / PDF files to slides/.
+// The live site starts with an empty schedule. See README.md for examples.
+// Date format: YYYY-MM-DD. Empty links hide their corresponding buttons.
 window.READING_CLUB = {
   name: "Reading Club",
-  description: "分享阅读，交换想法，让每一次讨论都有迹可循。",
+  description: "Share what you read, exchange ideas, and revisit every conversation.",
   demo: false,
-  // 将 null 替换成 README 中的 next 对象，即可公布下一次分享。
+  // Replace null with the next-session object in README.md to announce a session.
   next: null,
-  // 把 README 中的往期记录对象添加到这个数组内。
+  // Add past-session objects from README.md to this array.
   archive: []
 };
