@@ -4,7 +4,7 @@ A simple website for a reading club that meets every two weeks. Browse the next 
 
 **Website:** <https://wangshuaiia.github.io/reading-club/>
 
-The site starts with an empty schedule and archive. The dates, titles, and presenters below are examples; replace them with confirmed details. No presentation files are included.
+The archive contains five PDF presentations from August to October 2026. The next session has not been announced yet. The dates, titles, and presenters in the editing examples below are placeholders; replace them with confirmed details.
 
 ## Files
 
