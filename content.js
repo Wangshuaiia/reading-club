@@ -7,21 +7,21 @@ window.READING_CLUB = {
   demo: false,
   // Replace null with the next-session object in README.md to announce a session.
   next: {
-    "date": "",
+    "date": "2026-10-22",
     "title": "Jev: Fast Decisions, Faster Agents",
     "speaker": "Shuai Wang",
-    "time": "To be announced",
+    "time": "17:00 CEST (Copenhagen, UTC+02:00)",
     "location": "",
-    "summary": "Fast decisions. Less token-generation overhead. More responsive agents.\n\nIn our next Reading Club session, we’ll explore Jev, TypeSafe AI’s System One model for fast, structured decision-making. By producing choices and probabilities directly, Jev is designed to cut text-generation overhead and accelerate the decisions that keep agents moving.\n\nWe’ll unpack its publicly described principles, including parallel outputs and calibrated probabilities, and explore practical applications: rapid classification, tagging, workflow routing, and action selection in games. We’ll also connect these ideas to LLM-as-Jev and Jev-Mem, which examine LLM-based decision-making and efficient agent memory.\n\nAs Jev is closed source, our main reference will be TypeSafe’s official blog. Join us to explore where fast decisions can make a real difference for your next agent.",
+    "summary": "Meet Jev: faster decisions with less token overhead.\nExplore classification, tagging, and game actions.\nLearn how it works and where to use it.",
     "readingLabel": "Official blog",
     "readingUrl": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
     "references": [
       {
-        "title": "LLM-as-Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
+        "title": "LLM-as-Jev",
         "url": "https://arxiv.org/abs/2610.02076"
       },
       {
-        "title": "Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents",
+        "title": "Jev-Mem",
         "url": "https://arxiv.org/abs/2609.23986"
       }
     ],

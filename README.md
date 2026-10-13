@@ -4,7 +4,7 @@ A simple website for a reading club that meets every two weeks. Browse the next 
 
 **Website:** <https://wangshuaiia.github.io/reading-club/>
 
-The archive contains five PDF presentations from August to October 2026. The next session introduces Jev; its date and time are to be announced. The dates, titles, and presenters in the editing examples below are placeholders; replace them with confirmed details.
+Meetings take place every other Thursday at 17:00 Copenhagen time (Europe/Copenhagen). The next session introduces Jev on Thursday, 22 October 2026 at 17:00 CEST (UTC+02:00). The archive contains five PDF presentations from August to October 2026. The dates, titles, and presenters in the editing examples below are placeholders; replace them with confirmed details.
 
 ## Files
 
