@@ -75,6 +75,25 @@ input::placeholder { color: #6f7771; }
   .footer { flex-direction: column; gap: 8px; margin-top: 45px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+button.button { font-family: inherit; cursor: pointer; color: var(--ink); }
+button.button:disabled { opacity: .65; cursor: wait; }
+.discussion-section { margin-top: 64px; padding: 30px; border: 1px solid var(--line); border-radius: 10px; background: #fffefa; }
+.discussion-intro { margin: 14px 0 24px; color: var(--muted); font-size: 14px; }
+#discussion-controls label { display: block; font-size: 13px; margin-bottom: 8px; }
+#discussion-session { width: 100%; min-width: 0; max-width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 5px; font: inherit; font-size: 13px; color: var(--ink); background: var(--paper); }
+.discussion-topic { margin: 24px 0 20px; }
+.discussion-topic h3 { font-size: 20px; }
+.discussion-topic p, .discussion-help, .discussion-status { font-size: 13px; color: var(--muted); }
+.discussion-help { margin: 14px 0 22px; }
+.discussion-status { margin: 22px 0; }
+.comment-card { padding: 20px 0; border-top: 1px solid var(--line); }
+.comment-header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; }
+.comment-header time { color: var(--muted); font-size: 12px; }
+.comment-body { font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.comment-link { font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+#discussion-more { margin-top: 15px; }
+@media (max-width: 850px) { .nav { flex-wrap: wrap; } nav { flex-wrap: wrap; } }
+@media (max-width: 680px) { .discussion-section { padding: 22px; margin-top: 40px; } .discussion-actions .button { max-width: 100%; white-space: normal; } }
 
 .join-section { margin-top: 48px; padding: 30px; border: 1px solid var(--line); border-radius: 10px; background: #fffefa; }
 .join-schedule { margin: 12px 0 24px; font-size: 14px; color: var(--muted); }

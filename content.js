@@ -1,12 +1,10 @@
-// Edit this file for regular updates, and upload PPT / PDF files to slides/.
-// See README.md for examples of session updates.
-// Date format: YYYY-MM-DD. Empty links hide their corresponding buttons.
+// Edit session details and preserve discussionIssue when archiving a session.
+// Dates use YYYY-MM-DD. See README.md for adding a discussion.
 window.READING_CLUB = {
-  name: "Reading Club",
-  description: "Every two weeks, read a little deeper.",
-  demo: false,
-  // Replace null with the next-session object in README.md to announce a session.
-  next: {
+  "name": "Reading Club",
+  "description": "Every two weeks, read a little deeper.",
+  "demo": false,
+  "next": {
     "date": "2026-10-22",
     "title": "Jev: Fast Decisions, Faster Agents",
     "speaker": "Shuai Wang",
@@ -26,10 +24,10 @@ window.READING_CLUB = {
       }
     ],
     "slides": "",
-    "pdf": ""
+    "pdf": "",
+    "discussionIssue": 1
   },
-  // Add past-session objects from README.md to this array.
-  archive: [
+  "archive": [
     {
       "date": "2026-08-13",
       "title": "GLM-5: from Vibe Coding to Agentic Engineering (Part I)",
@@ -38,7 +36,8 @@ window.READING_CLUB = {
       "tags": [],
       "readingUrl": "",
       "slides": "",
-      "pdf": "slides/ShuaiWang-DTU-0813.pdf"
+      "pdf": "slides/ShuaiWang-DTU-0813.pdf",
+      "discussionIssue": 6
     },
     {
       "date": "2026-08-27",
@@ -48,7 +47,8 @@ window.READING_CLUB = {
       "tags": [],
       "readingUrl": "",
       "slides": "",
-      "pdf": "slides/ShuaiWang-DTU-0827.pdf"
+      "pdf": "slides/ShuaiWang-DTU-0827.pdf",
+      "discussionIssue": 5
     },
     {
       "date": "2026-09-10",
@@ -58,7 +58,8 @@ window.READING_CLUB = {
       "tags": [],
       "readingUrl": "",
       "slides": "",
-      "pdf": "slides/ShuaiWang-DTU-0910.pdf"
+      "pdf": "slides/ShuaiWang-DTU-0910.pdf",
+      "discussionIssue": 4
     },
     {
       "date": "2026-09-24",
@@ -68,7 +69,8 @@ window.READING_CLUB = {
       "tags": [],
       "readingUrl": "",
       "slides": "",
-      "pdf": "slides/ShuaiWang-DTU-0924.pdf"
+      "pdf": "slides/ShuaiWang-DTU-0924.pdf",
+      "discussionIssue": 3
     },
     {
       "date": "2026-10-08",
@@ -78,7 +80,9 @@ window.READING_CLUB = {
       "tags": [],
       "readingUrl": "",
       "slides": "",
-      "pdf": "slides/ShuaiWang-DTU-1008.pdf"
+      "pdf": "slides/ShuaiWang-DTU-1008.pdf",
+      "discussionIssue": 2
     }
-  ]
+  ],
+  "discussionRepo": "Wangshuaiia/reading-club"
 };

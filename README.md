@@ -13,6 +13,7 @@ reading-club/
 ├── index.html       # Page structure and English interface text
 ├── style.css        # Styling and responsive layout
 ├── app.js           # Content rendering, English date formatting, and search
+├── discussion.js    # Session discussions and public GitHub comments
 ├── content.js       # Edit this file for regular content updates
 ├── .nojekyll        # Skip Jekyll processing
 ├── README.md
@@ -74,6 +75,22 @@ archive: [
 5. Commit your changes. The website updates after GitHub Pages finishes deploying.
 
 If a scheduled date has passed, the site displays a reminder. It does not automatically move records to the archive, add 14 days, or upload files.
+
+## Session discussions
+
+Each session has a permanent GitHub issue for questions, reading notes, requested topics, and feedback. Visitors can read comments on the website without signing in. To post, they click **Add a note or review on GitHub**, sign in to GitHub, and leave a comment. They can return and click **Refresh comments** to see the new comment on the website. Comments are public.
+
+The website shows comments in chronological order, 20 at a time. **Load more comments** displays the next page. If GitHub's public API is unavailable or rate-limited, the direct GitHub discussion link still works.
+
+For each new session, create a GitHub issue in this repository with a title such as `[Reading Club YYYY-MM-DD] Session title`. Include short prompts for pre-session questions and post-session feedback. Add the issue number as `discussionIssue` in the session's `content.js` object:
+
+```js
+discussionIssue: 7,
+```
+
+When moving a session from `next` to `archive`, preserve its `discussionIssue` so all questions, reviews, and replies remain together. The currently configured repository is `Wangshuaiia/reading-club`, stored in `discussionRepo`.
+
+The presenter and organizer can reply and manage comments directly on GitHub. Enable GitHub notifications on the issues if you want alerts for new questions. You can hide or remove inappropriate comments using GitHub's normal moderation controls. No GitHub access token is stored in the website.
 
 ## Content guidelines
 

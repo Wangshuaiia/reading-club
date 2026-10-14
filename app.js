@@ -98,6 +98,7 @@
     const fragment = document.createDocumentFragment();
     filtered.forEach((session) => {
       const article = make("article", "archive-card");
+      if (session.discussionIssue) article.dataset.discussionIssue = String(session.discussionIssue);
       const date = make("p", "archive-date", dateLabel(session.date));
       const body = make("div", "archive-body");
       body.append(make("h3", "", session.title || "Untitled session"));

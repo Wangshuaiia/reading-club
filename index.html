@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Reading Club: meet every two weeks, discover upcoming sessions, and explore past presentations.">
   <title>Reading Club</title>
-  <link rel="stylesheet" href="style.css?v=join-20261014-1">
-  <script defer src="content.js?v=tagline-20261014-1"></script>
-  <script defer src="app.js?v=jev-short-20261013-1"></script>
+  <link rel="stylesheet" href="style.css?v=discussion-20261014-1">
+  <script defer src="content.js?v=discussion-20261014-1"></script>
+  <script defer src="app.js?v=discussion-20261014-1"></script>
+  <script defer src="discussion.js?v=discussion-20261014-1"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to main content</a>
   <header class="nav wrap">
     <a class="brand" href="#"><span class="brand-icon" aria-hidden="true">▤</span><span data-club-name>Reading Club</span></a>
-    <nav aria-label="Main navigation"><a href="#next">Next session</a><a href="#archive">Past sessions</a><a href="#join">Join &amp; contact</a></nav>
+    <nav aria-label="Main navigation"><a href="#next">Next session</a><a href="#archive">Past sessions</a><a href="#discussion">Discussion</a><a href="#join">Join &amp; contact</a></nav>
   </header>
   <main id="main" class="wrap">
     <p id="demo-note" class="notice" hidden>Sample template · Dates, topics, and sessions are placeholders. Replace them with your club’s details.</p>
@@ -59,7 +60,25 @@
       <p id="empty-state" class="empty" role="status" hidden>No past sessions yet.</p>
       <p class="file-note">Download presentation slides, or open a PDF in your browser when one is available.</p>
     </section>
-    <noscript><p class="notice">Please enable JavaScript to view the schedule and past session materials.</p></noscript>
+    <section id="discussion" class="discussion-section" aria-labelledby="discussion-heading">
+      <div class="section-heading"><div><p class="eyebrow">YOUR VOICE SHAPES THE NEXT SESSION</p><h2 id="discussion-heading">Questions, notes &amp; feedback</h2></div></div>
+      <p class="discussion-intro">Ask before we meet. Share your thoughts after the talk.</p>
+      <div id="discussion-controls">
+        <label for="discussion-session">Choose a session</label>
+        <select id="discussion-session"></select>
+        <div class="discussion-topic"><h3 id="discussion-title"></h3><p id="discussion-context"></p></div>
+        <div class="actions discussion-actions">
+          <a id="discussion-post" class="button button-primary" target="_blank" rel="noopener noreferrer">Add a note or review on GitHub ↗</a>
+          <a id="discussion-view" class="button" target="_blank" rel="noopener noreferrer">View full discussion ↗</a>
+          <button id="discussion-refresh" class="button" type="button">Refresh comments</button>
+        </div>
+        <p class="discussion-help">Sign in to GitHub to post. Anyone can read the public discussion. Click Refresh comments after posting.</p>
+      </div>
+      <p id="discussion-status" class="discussion-status" role="status" aria-live="polite">Loading discussion…</p>
+      <div id="discussion-comments" aria-busy="false"></div>
+      <button id="discussion-more" class="button" type="button" hidden>Load more comments</button>
+    </section>
+    <noscript><p class="notice">Please enable JavaScript to view the schedule and past session materials. <a href="https://github.com/Wangshuaiia/reading-club/issues">Read and post session comments on GitHub.</a></p></noscript>
   </main>
   <footer class="wrap footer"><span data-club-name>Reading Club</span><span>Read a book. Discover another perspective.</span></footer>
 </body>
