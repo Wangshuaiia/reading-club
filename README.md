@@ -14,7 +14,7 @@ reading-club/
 ├── style.css        # Styling and responsive layout
 ├── app.js           # Content rendering, English date formatting, and search
 ├── discussion.js    # Session discussions and public GitHub comments
-├── analytics.js     # Optional GoatCounter tracking and public statistics
+├── analytics.js     # Private GoatCounter visit tracking
 ├── content.js       # Edit this file for regular content updates
 ├── .nojekyll        # Skip Jekyll processing
 ├── README.md
@@ -135,17 +135,12 @@ The repository and website are public, so only upload materials you intend to sh
 
 ## Visitor statistics
 
-GoatCounter integration is **enabled** for `ai-frontier-reading-club.goatcounter.com`. Public visit counts and the embedded dashboard are configured. Statistics start on 14 October 2026; no historic traffic can be reconstructed. Email verification is completed by the account owner. The following instructions describe setup for another account.
+Cookieless tracking remains enabled for `ai-frontier-reading-club.goatcounter.com`. The website does not display statistics, fetch public counters, or embed a dashboard.
 
-1. Register at <https://www.goatcounter.com/signup>. GoatCounter requires a human to register the account. Choose an account code, such as `ai-frontier-reading-club`, if available. Keep your password private.
-2. In GoatCounter **Settings**, set **Dashboard viewable by** to **Everyone** (public aggregated statistics), enable **Allow adding visitor counts on your website**, and add `https://wangshuaiia.github.io` to **Sites that can embed GoatCounter**. Enable Locations, and leave collection of individual pageviews disabled. Prefer country-level locations; disable region detail if unwanted. You can move the Locations widget near the top of your dashboard.
-3. In `content.js`, set `analytics.enabled` to `true` and `analytics.siteCode` to your actual account code. Commit the change to activate it.
-4. Verify a visit on the published site, the public dashboard, and the **Explore countries & visit trends** panel while signed out. Dashboard data arrives shortly; the public count endpoint can be cached for up to four hours.
+View visits, countries/regions, referrals and trends at <https://ai-frontier-reading-club.goatcounter.com/> after signing in. GoatCounter's **Dashboard viewable by** is set to **Only logged in users**, **Allow adding visitor counts on your website** is disabled, and **Sites that can embed GoatCounter** is empty. These settings restrict display; they do not stop visit collection or delete existing data.
 
-The page shows all-time visits and visits in the past month via GoatCounter's public `counter/TOTAL.json` endpoint. An expandable dashboard shows Locations and visit trends. No API tokens or secret links are needed or stored. Counts are approximate visits, **not lifetime unique people**. A person may be counted again in a later session, and network-based geography may reflect a VPN or proxy. Blocked scripts and some bots can affect counts.
+Tracking runs only on the published `https://wangshuaiia.github.io/reading-club/` website. Local/file previews and unrelated domains do not send pageviews. The tracked page path is normalized so query strings and section hashes do not create separate pages. The GoatCounter script may process query parameters for campaign attribution.
 
-Tracking runs only on `https://wangshuaiia.github.io/reading-club/`; local/file previews and other domains do not send pageviews. The path is normalized and query strings and fragment identifiers are excluded. If statistics fail, visitors can open the public dashboard directly. Missing counts remain dashes, never invented zeros.
+Keep `analytics.enabled: true` and `analytics.siteCode: "ai-frontier-reading-club"` in `content.js`. Never store passwords or API tokens in this public repository. Statistics began on 14 October 2026; earlier traffic cannot be reconstructed. Counts approximate visits rather than lifetime unique individuals. Geography is estimated from network location.
 
-For a local layout preview before setup, open `index.html?analytics-preview=1#visitors` from a file or localhost URL. This shows empty counters and a clear preview note, without analytics requests.
-
-Official documentation: [Integration](https://www.goatcounter.com/help/start), [public counters](https://www.goatcounter.com/help/visitor-counter), [embedding](https://www.goatcounter.com/help/frame), [visit definitions](https://www.goatcounter.com/help/sessions), and [privacy](https://www.goatcounter.com/help/privacy).
+Official documentation: [Integration](https://www.goatcounter.com/help/start), [visit definitions](https://www.goatcounter.com/help/sessions), and [privacy](https://www.goatcounter.com/help/privacy).
