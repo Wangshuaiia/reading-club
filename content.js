@@ -86,7 +86,7 @@ window.READING_CLUB = {
   ],
   "discussionRepo": "Wangshuaiia/reading-club",
   "analytics": {
-    "enabled": false,
-    "siteCode": ""
+    "enabled": true,
+    "siteCode": "ai-frontier-reading-club"
   }
 };

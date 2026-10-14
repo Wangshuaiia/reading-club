@@ -135,7 +135,7 @@ The repository and website are public, so only upload materials you intend to sh
 
 ## Visitor statistics
 
-GoatCounter integration is prepared but **disabled until the owner registers an account**. No historic traffic can be reconstructed. The visitor section remains hidden while disabled.
+GoatCounter integration is **enabled** for `ai-frontier-reading-club.goatcounter.com`. Public visit counts and the embedded dashboard are configured. Statistics start on 14 October 2026; no historic traffic can be reconstructed. Email verification is completed by the account owner. The following instructions describe setup for another account.
 
 1. Register at <https://www.goatcounter.com/signup>. GoatCounter requires a human to register the account. Choose an account code, such as `ai-frontier-reading-club`, if available. Keep your password private.
 2. In GoatCounter **Settings**, set **Dashboard viewable by** to **Everyone** (public aggregated statistics), enable **Allow adding visitor counts on your website**, and add `https://wangshuaiia.github.io` to **Sites that can embed GoatCounter**. Enable Locations, and leave collection of individual pageviews disabled. Prefer country-level locations; disable region detail if unwanted. You can move the Locations widget near the top of your dashboard.
