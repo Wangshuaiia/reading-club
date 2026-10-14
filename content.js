@@ -3,7 +3,7 @@
 // Date format: YYYY-MM-DD. Empty links hide their corresponding buttons.
 window.READING_CLUB = {
   name: "Reading Club",
-  description: "Share what you read, exchange ideas, and revisit every conversation.",
+  description: "Every two weeks, read a little deeper.",
   demo: false,
   // Replace null with the next-session object in README.md to announce a session.
   next: {
