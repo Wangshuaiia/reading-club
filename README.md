@@ -137,7 +137,7 @@ The repository and website are public, so only upload materials you intend to sh
 
 Cookieless tracking remains enabled for `ai-frontier-reading-club.goatcounter.com`. The website does not display statistics, fetch public counters, or embed a dashboard.
 
-View visits, countries/regions, referrals and trends at <https://ai-frontier-reading-club.goatcounter.com/> after signing in. GoatCounter's **Dashboard viewable by** is set to **Only logged in users**, **Allow adding visitor counts on your website** is disabled, and **Sites that can embed GoatCounter** is empty. These settings restrict display; they do not stop visit collection or delete existing data.
+View visits, countries/regions, referrals and trends at <https://ai-frontier-reading-club.goatcounter.com/> without signing in. GoatCounter's **Dashboard viewable by** is set to **Anyone**, **Allow adding visitor counts on your website** is disabled, and **Sites that can embed GoatCounter** is empty. These settings restrict display; they do not stop visit collection or delete existing data.
 
 Tracking runs only on the published `https://wangshuaiia.github.io/reading-club/` website. Local/file previews and unrelated domains do not send pageviews. The tracked page path is normalized so query strings and section hashes do not create separate pages. The GoatCounter script may process query parameters for campaign attribution.
 
