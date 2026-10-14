@@ -84,5 +84,9 @@ window.READING_CLUB = {
       "discussionIssue": 2
     }
   ],
-  "discussionRepo": "Wangshuaiia/reading-club"
+  "discussionRepo": "Wangshuaiia/reading-club",
+  "analytics": {
+    "enabled": false,
+    "siteCode": ""
+  }
 };

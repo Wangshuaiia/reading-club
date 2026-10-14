@@ -1,4 +1,16 @@
 :root { color-scheme: light; --paper: #f8f7f2; --ink: #273d36; --muted: #64716c; --line: #d7ddd4; --green: #e5eadf; }
+.visitors-section { margin-top: 64px; padding: 30px; border: 1px solid var(--line); border-radius: 10px; background: #fffefa; }
+.visitor-metrics { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 24px; margin: 28px 0 18px; }
+.visitor-metric { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); }
+.visitor-number { color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 36px; line-height: 1.2; overflow-wrap: anywhere; }
+.visitor-about { border-left: 1px solid var(--line); padding-left: 24px; justify-content: center; }
+.visitor-about strong { color: var(--ink); font-size: 15px; }
+.analytics-details { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 18px; }
+.analytics-details summary { cursor: pointer; font-size: 14px; font-weight: 600; }
+.analytics-frame { width: 100%; height: 850px; border: 1px solid var(--line); border-radius: 5px; background: white; margin-top: 10px; }
+.analytics-note { color: var(--muted); font-size: 12px; margin: 12px 0 0; }
+.analytics-note a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 680px) { .visitors-section { padding: 22px; margin-top: 40px; } .visitor-metrics { grid-template-columns: 1fr 1fr; gap: 24px 16px; } .visitor-about { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); padding: 18px 0 0; } }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 25px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.65; }

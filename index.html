@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Reading Club: meet every two weeks, discover upcoming sessions, and explore past presentations.">
   <title>Reading Club</title>
-  <link rel="stylesheet" href="style.css?v=discussion-20261014-1">
-  <script defer src="content.js?v=discussion-20261014-1"></script>
+  <link rel="stylesheet" href="style.css?v=analytics-20261014-1">
+  <script defer src="content.js?v=analytics-20261014-1"></script>
   <script defer src="app.js?v=discussion-20261014-1"></script>
   <script defer src="discussion.js?v=discussion-20261014-1"></script>
+  <script defer src="analytics.js?v=analytics-20261014-1"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to main content</a>
@@ -75,6 +76,23 @@
       <p id="discussion-status" class="discussion-status" role="status" aria-live="polite">Loading discussion…</p>
       <div id="discussion-comments" aria-busy="false"></div>
       <button id="discussion-more" class="button" type="button" hidden>Load more comments</button>
+    </section>
+    <section id="visitors" class="visitors-section" aria-labelledby="visitors-heading" hidden>
+      <div class="section-heading"><div><p class="eyebrow">A COMMUNITY WITHOUT BORDERS</p><h2 id="visitors-heading">Who’s reading with us?</h2></div><a id="analytics-dashboard" class="text-link" target="_blank" rel="noopener noreferrer" hidden>Open statistics ↗</a></div>
+      <div class="visitor-metrics" aria-live="polite">
+        <div class="visitor-metric"><span id="visits-total" class="visitor-number">—</span><span>Total visits</span></div>
+        <div class="visitor-metric"><span id="visits-month" class="visitor-number">—</span><span>Visits in the past month</span></div>
+        <div class="visitor-metric visitor-about"><strong>Readers around the world</strong><span>Explore countries, regions and visit trends below.</span></div>
+      </div>
+      <p id="analytics-status" class="muted" role="status">Loading visit counts…</p>
+      <details id="analytics-details" class="analytics-details" hidden>
+        <summary>Explore countries &amp; visit trends</summary>
+        <p class="muted">Scroll within the dashboard for the Locations table. Statistics reflect the selected date range.</p>
+        <div id="analytics-frame-container"></div>
+        <p class="muted">If the dashboard does not load here, use Open statistics above.</p>
+      </details>
+      <p class="analytics-note">Approximate visits, not a count of individual people. Country and region estimates are based on network location. Counts may take up to four hours to update.</p>
+      <p class="analytics-note">Cookieless analytics by <a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener noreferrer">GoatCounter</a>. Statistics begin when tracking is enabled.</p>
     </section>
     <noscript><p class="notice">Please enable JavaScript to view the schedule and past session materials. <a href="https://github.com/Wangshuaiia/reading-club/issues">Read and post session comments on GitHub.</a></p></noscript>
   </main>
