@@ -79,7 +79,7 @@ If a scheduled date has passed, the site displays a reminder. It does not automa
 
 ## Session discussions
 
-Each session has a permanent GitHub issue for questions, reading notes, requested topics, and feedback. Visitors can read comments on the website without signing in. To post, they click **Add a note or review on GitHub**, sign in to GitHub, and leave a comment. They can return and click **Refresh comments** to see the new comment on the website. Comments are public.
+Each session has a permanent GitHub issue for questions, reading notes, requested topics, and feedback. Visitors can read comments on the website without signing in. To post, they click **Add a note**, sign in to GitHub, and leave a comment. They can return and click **Refresh comments** to see the new comment on the website. Comments are public.
 
 The website shows comments in chronological order, 20 at a time. **Load more comments** displays the next page. If GitHub's public API is unavailable or rate-limited, the direct GitHub discussion link still works.
 
