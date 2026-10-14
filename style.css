@@ -75,3 +75,24 @@ input::placeholder { color: #6f7771; }
   .footer { flex-direction: column; gap: 8px; margin-top: 45px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.join-section { margin-top: 48px; padding: 30px; border: 1px solid var(--line); border-radius: 10px; background: #fffefa; }
+.join-schedule { margin: 12px 0 24px; font-size: 14px; color: var(--muted); }
+.join-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 36px; }
+.button-primary { background: var(--ink); border-color: var(--ink); color: white; }
+.button-primary:hover { background: #3b5148; }
+.meeting-details { margin: 20px 0 16px; }
+.calendar-instructions, .calendar-note { font-size: 12px; color: var(--muted); }
+.calendar-instructions { margin: 0 0 10px; }
+.calendar-note { margin: 12px 0 0; }
+.contact-card { border-left: 1px solid var(--line); padding-left: 28px; }
+.contact-card h3 { font-size: 20px; margin: 0 0 12px; }
+.contact-card p { font-size: 13px; margin: 0 0 10px; color: var(--muted); }
+.contact-card a { display: block; width: fit-content; font-size: 13px; margin-top: 8px; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 680px) {
+  .nav { flex-wrap: wrap; }
+  nav { flex-wrap: wrap; }
+  .join-section { padding: 24px; margin-top: 32px; }
+  .join-grid { grid-template-columns: 1fr; gap: 26px; }
+  .contact-card { border-left: 0; border-top: 1px solid var(--line); padding: 22px 0 0; }
+}
