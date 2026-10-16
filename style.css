@@ -115,3 +115,11 @@ button.button:disabled { opacity: .65; cursor: wait; }
   .join-grid { grid-template-columns: 1fr; gap: 26px; }
   .contact-card { border-left: 0; border-top: 1px solid var(--line); padding: 22px 0 0; }
 }
+
+.presenter-section { margin-top: 48px; padding: 30px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 36px; border: 1px solid var(--line); border-radius: 10px; background: #fffefa; }
+.presenter-heading .eyebrow { color: var(--muted); margin-bottom: 9px; }
+.presenter-role { font-size: 13px; color: var(--muted); margin: 14px 0 0; }
+.presenter-body { min-width: 0; }
+.presenter-body p { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+.presenter-body .actions { margin-top: 22px; }
+@media (max-width: 680px) { .presenter-section { grid-template-columns: 1fr; padding: 24px; gap: 22px; margin-top: 32px; } }

@@ -144,3 +144,9 @@ Tracking runs only on the published `https://wangshuaiia.github.io/reading-club/
 Keep `analytics.enabled: true` and `analytics.siteCode: "ai-frontier-reading-club"` in `content.js`. Never store passwords or API tokens in this public repository. Statistics began on 14 October 2026; earlier traffic cannot be reconstructed. Counts approximate visits rather than lifetime unique individuals. Geography is estimated from network location.
 
 Official documentation: [Integration](https://www.goatcounter.com/help/start), [visit definitions](https://www.goatcounter.com/help/sessions), and [privacy](https://www.goatcounter.com/help/privacy).
+
+## Presenter introduction
+
+The **About the presenter** section in `index.html` contains a short English biography based on the supplied personal introduction. The complete original PDF is stored at `about/Shuai-Wang.pdf`. Replace that file to update the downloadable introduction, and update the HTML biography if your role or research interests change.
+
+Google Scholar: <https://scholar.google.com/citations?user=w-ecPmgAAAAJ&hl=en>.
