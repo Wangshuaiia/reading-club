@@ -8,7 +8,7 @@ window.READING_CLUB = {
     "date": "2026-10-22",
     "title": "Jev: Fast Decisions, Faster Agents",
     "speaker": "Shuai Wang",
-    "time": "17:00 CEST (Copenhagen, UTC+02:00)",
+    "time": "22 October 2026 17:00 Copenhagen time",
     "location": "",
     "summary": "Meet Jev: faster decisions with less token overhead.\nExplore classification, tagging, and game actions.\nLearn how it works and where to use it.",
     "readingLabel": "Official blog",
