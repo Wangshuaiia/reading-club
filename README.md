@@ -4,7 +4,7 @@ A simple website for a reading club that meets every two weeks. Browse the next 
 
 **Website:** <https://wangshuaiia.github.io/reading-club/>
 
-Meetings take place every other Thursday at 17:00 Copenhagen time (Europe/Copenhagen). The next session introduces Jev on Thursday, 22 October 2026 at 17:00 CEST (UTC+02:00). The archive contains five PDF presentations from August to October 2026. The dates, titles, and presenters in the editing examples below are placeholders; replace them with confirmed details.
+Meetings take place every other Thursday at 17:00 Copenhagen time (Europe/Copenhagen). The next session covers LLM Agents: Recursive Self-Improvement (RSI), based on Harness^2: Recursive Agent Harnessing for an Open World, on Thursday, 5 November 2026 at 17:00 Copenhagen time (CET, UTC+01:00). The archive contains six PDF presentations from August to October 2026, including JEV: Introduction and Usage on 22 October 2026. The dates, titles, and presenters in the editing examples below are placeholders; replace them with confirmed details.
 
 ## Files
 
@@ -39,7 +39,7 @@ next: {
 },
 ```
 
-Use your actual date, time, and time zone. Dates are displayed in English with the month written out, for example **27 October 2026**, to avoid ambiguity for international readers.
+Use your actual date, time, and time zone. The hero, session details, and join section all display `next.time`; use a complete value such as `5 November 2026 17:00 Copenhagen time`. Also update the two static `data-next-time` fallback texts in `index.html` when publishing a new schedule. Dates are displayed in English with the month written out, for example **27 October 2026**, to avoid ambiguity for international readers.
 
 `location` appears as plain text; visitors can copy a meeting URL. `readingUrl` creates a clickable reading-material button. Use `next: null` when the next session has not been announced.
 

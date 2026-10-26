@@ -5,27 +5,18 @@ window.READING_CLUB = {
   "description": "Every two weeks, read a little deeper.",
   "demo": false,
   "next": {
-    "date": "2026-10-22",
-    "title": "Jev: Fast Decisions, Faster Agents",
+    "date": "2026-11-05",
+    "title": "LLM Agents: Recursive Self-Improvement (RSI)",
     "speaker": "Shuai Wang",
-    "time": "22 October 2026 17:00 Copenhagen time",
+    "time": "5 November 2026 17:00 Copenhagen time",
     "location": "",
-    "summary": "Meet Jev: faster decisions with less token overhead.\nExplore classification, tagging, and game actions.\nLearn how it works and where to use it.",
-    "readingLabel": "Official blog",
-    "readingUrl": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
-    "references": [
-      {
-        "title": "LLM-as-Jev",
-        "url": "https://arxiv.org/abs/2610.02076"
-      },
-      {
-        "title": "Jev-Mem",
-        "url": "https://arxiv.org/abs/2609.23986"
-      }
-    ],
+    "summary": "Can LLM agents improve their own workflows?\nExplore Harness^2: Recursive Agent Harnessing for an Open World.\nLearn how agents adapt through two levels of recursive self-improvement.",
+    "readingLabel": "Read Harness^2",
+    "readingUrl": "https://arxiv.org/abs/2610.14224",
+    "references": [],
     "slides": "",
     "pdf": "",
-    "discussionIssue": 1
+    "discussionIssue": 7
   },
   "archive": [
     {
@@ -82,6 +73,18 @@ window.READING_CLUB = {
       "slides": "",
       "pdf": "slides/ShuaiWang-DTU-1008.pdf",
       "discussionIssue": 2
+    },
+    {
+      "date": "2026-10-22",
+      "title": "JEV: Introduction and Usage",
+      "speaker": "Shuai Wang",
+      "summary": "",
+      "tags": [],
+      "readingLabel": "Official blog",
+      "readingUrl": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "slides": "",
+      "pdf": "slides/ShuaiWang-DTU-1022.pdf",
+      "discussionIssue": 1
     }
   ],
   "discussionRepo": "Wangshuaiia/reading-club",

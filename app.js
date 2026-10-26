@@ -55,6 +55,7 @@
   $("demo-note").hidden = !club.demo;
   if (club.next) {
     const next = club.next;
+    document.querySelectorAll("[data-next-time]").forEach((el) => { el.textContent = next.time || dateLabel(next.date); });
     const date = parseDate(next.date);
     $("next-date").textContent = dateLabel(next.date);
     $("next-weekday").textContent = date ? new Intl.DateTimeFormat("en-GB", { weekday: "long" }).format(date) : "";
