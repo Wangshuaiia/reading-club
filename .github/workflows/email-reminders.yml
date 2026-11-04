@@ -8,6 +8,10 @@ on:
       - index.html
       - subscription.js
       - scripts/schedule-reminder.mjs
+      - scripts/build-calendar.mjs
+      - calendar.mjs
+      - calendar-ui.mjs
+      - calendar/**
       - tests/reminders.test.mjs
       - .github/workflows/email-reminders.yml
   schedule:
@@ -44,6 +48,8 @@ jobs:
           package-manager-cache: false
       - name: Test scheduling and subscription safeguards
         run: node --test tests/reminders.test.mjs
+      - name: Check the published calendar event
+        run: node scripts/build-calendar.mjs --check
       - name: Preview the next reminder
         run: node scripts/schedule-reminder.mjs --check
       - name: Synchronize the provider schedule

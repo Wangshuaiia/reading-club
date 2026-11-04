@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Reading Club: meet every two weeks, discover upcoming sessions, and explore past presentations.">
   <title>Reading Club</title>
-  <link rel="stylesheet" href="style.css?v=reminders-20261104-2">
-  <script defer src="content.js?v=reminders-live-20261104-1"></script>
+  <link rel="stylesheet" href="style.css?v=week-calendar-20261104-1">
+  <script defer src="content.js?v=week-calendar-20261104-1"></script>
   <script defer src="app.js?v=session-20261105-1"></script>
   <script defer src="discussion.js?v=discussion-20261014-1"></script>
   <script defer src="analytics.js?v=private-analytics-20261014-1"></script>
-  <script defer src="subscription.js?v=reminders-20261104-1"></script>
+  <script defer src="subscription.js?v=week-calendar-20261104-1"></script>
+  <script type="module" src="calendar-ui.mjs?v=week-calendar-20261104-1"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to main content</a>
@@ -42,8 +43,18 @@
             <a class="button" href="https://dtudk.zoom.us/launch/jc/64067537122" target="_blank" rel="noopener noreferrer">Meeting chat ↗</a>
           </div>
           <dl class="meta meeting-details"><div><dt>Meeting ID</dt><dd>640 6753 7122</dd></div><div><dt>Passcode</dt><dd>749380</dd></div></dl>
-          <p class="calendar-instructions">Download the .ics file and import it into your calendar.</p>
-          <a class="button" href="https://dtudk.zoom.us/meeting/u5Atce6trTwrGNZye5K6xHrdiku_WHDbWl_H/ics?icsToken=DEelZt9qd85-5oU0rQAALAAAACzN2i2JUso9QBQ6JpfLSTE4Fr3CNYyksXbsK0_ruDNuLmLytdG3pAQuOpuCbbsF65kUDTolWy5twYhywzAwMDAwMg&amp;meetingMasterEventId=HdFCkVSzR7a0AicPRbpzcw" target="_blank" rel="noopener noreferrer">Download calendar (.ics) ↗</a>
+          <div id="session-calendar" hidden>
+            <h3 class="calendar-title">Add the next session to your calendar</h3>
+            <div class="actions calendar-actions">
+              <a class="button" data-calendar="outlook" target="_blank" rel="noopener noreferrer">Outlook (work / school) ↗</a>
+              <a class="button" data-calendar="outlookPersonal" target="_blank" rel="noopener noreferrer">Outlook.com ↗</a>
+              <a class="button" data-calendar="google" target="_blank" rel="noopener noreferrer">Google Calendar ↗</a>
+              <a class="button" data-calendar="ics" download>Download session (.ics)</a>
+            </div>
+            <p id="calendar-slot" class="calendar-instructions"></p>
+          </div>
+          <p class="calendar-instructions">Prefer the recurring Zoom calendar? Download and import it below.</p>
+          <a class="button" href="https://dtudk.zoom.us/meeting/u5Atce6trTwrGNZye5K6xHrdiku_WHDbWl_H/ics?icsToken=DEelZt9qd85-5oU0rQAALAAAACzN2i2JUso9QBQ6JpfLSTE4Fr3CNYyksXbsK0_ruDNuLmLytdG3pAQuOpuCbbsF65kUDTolWy5twYhywzAwMDAwMg&amp;meetingMasterEventId=HdFCkVSzR7a0AicPRbpzcw" target="_blank" rel="noopener noreferrer">Download Zoom calendar (.ics) ↗</a>
         </div>
         <aside class="contact-card" aria-labelledby="contact-heading">
           <h3 id="contact-heading">Contact</h3>
@@ -54,13 +65,13 @@
       </div>
       <div class="reminder-card" aria-labelledby="reminder-heading">
         <div class="reminder-heading"><h3 id="reminder-heading">Never miss a session</h3><span id="reminder-badge" class="reminder-badge">Coming soon</span></div>
-        <p class="reminder-description">Get an email reminder 30 minutes before each session, with a direct link to join.</p>
+        <p class="reminder-description">Get an email one week before each session, at 15:00 Copenhagen time. Add it to Outlook, Google Calendar, or another calendar app, and set your event reminder.</p>
         <form id="reminder-form" method="post" aria-describedby="reminder-status reminder-privacy">
           <fieldset id="reminder-fields" disabled>
             <label for="reminder-email">Your email address</label>
-            <div class="reminder-input-row"><input id="reminder-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required maxlength="254"><button class="button button-primary" type="submit">Subscribe to reminders</button></div>
+            <div class="reminder-input-row"><input id="reminder-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required maxlength="254"><button class="button button-primary" type="submit">Subscribe to invitations</button></div>
             <input type="hidden" name="embed" value="1">
-            <label class="reminder-consent"><input type="checkbox" required><span>I agree to receive reading club reminders by email.</span></label>
+            <label class="reminder-consent"><input type="checkbox" required><span>I agree to receive reading club invitations by email.</span></label>
           </fieldset>
         </form>
         <p id="reminder-status" class="reminder-status" role="status">Email reminders are coming soon. For now, add the calendar above.</p>

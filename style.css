@@ -147,3 +147,7 @@ button.button:disabled { opacity: .65; cursor: wait; }
 .reminder-privacy a { text-decoration: underline; text-underline-offset: 3px; }
 #reminder-fields:disabled .reminder-input-row { opacity: .65; }
 @media (max-width: 680px) { .reminder-card { padding: 18px; } .reminder-input-row { flex-direction: column; } .reminder-input-row .button { white-space: normal; } }
+
+.calendar-title { margin: 24px 0 12px; font-size: 17px; }
+.calendar-actions { gap: 8px; }
+.calendar-actions .button { font-size: 12px; white-space: normal; }

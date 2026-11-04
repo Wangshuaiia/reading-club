@@ -8,6 +8,7 @@ window.READING_CLUB = {
     "date": "2026-11-05",
     "title": "LLM Agents: Recursive Self-Improvement (RSI)",
     "speaker": "Shuai Wang",
+    "durationMinutes": 60,
     "time": "5 November 2026 17:00 Copenhagen time",
     "location": "",
     "summary": "Can LLM agents improve their own workflows?\nExplore Harness^2: Recursive Agent Harnessing for an Open World.\nLearn how agents adapt through two levels of recursive self-improvement.",

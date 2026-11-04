@@ -13,7 +13,7 @@
   form.action = `https://buttondown.com/api/emails/embed-subscribe/${encodeURIComponent(settings.buttondownUsername)}`;
   document.getElementById("reminder-fields").disabled = false;
   document.getElementById("reminder-badge").hidden = true;
-  document.getElementById("reminder-status").textContent = "After subscribing, check your inbox and confirm your email. Reminders are scheduled for 30 minutes before each announced session; delivery times can vary.";
+  document.getElementById("reminder-status").textContent = "After subscribing, check your inbox and confirm your email. Invitations are scheduled one week before each session at 15:00 Copenhagen time, with links to add the event to your calendar. Subscribing after that deadline starts with a future session.";
   // A native POST lets Buttondown handle confirmation, validation and CAPTCHA.
   // Never report success here: only Buttondown can confirm a subscription.
 })();

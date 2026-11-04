@@ -2,12 +2,13 @@ import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import {localStart,sessionStart,reminderTime,calendarEvent,calendarLinks} from '../calendar.mjs';
+export {localStart} from '../calendar.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const API = 'https://api.buttondown.com/v1/';
+// Keep the legacy ownership marker so the old 30-minute schedule can be withdrawn.
 const MARKER = 'Wangshuaiia/reading-club/30-minute-reminder-v1';
-const ZONE = 'Europe/Copenhagen';
-const LEAD = 30 * 60 * 1000;
 const EDITABLE = new Set(['draft', 'scheduled']);
 const COMMITTED = new Set(['sent', 'about_to_send', 'in_flight', 'throttled', 'resending', 'partially_sent', 'paused', 'errored']);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -22,46 +23,30 @@ export function parseConfig(source) {
   return JSON.parse(source.slice(start + prefix.length).trim().replace(/;$/, ''));
 }
 
-export function localStart(date, clock, zone = ZONE) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '') || !/^([01]\d|2[0-3]):[0-5]\d$/.test(clock || '')) throw new Error('Invalid session date or time.');
-  const [y, m, d] = date.split('-').map(Number);
-  const [h, minute] = clock.split(':').map(Number);
-  const naive = Date.UTC(y, m - 1, d, h, minute);
-  const check = new Date(naive);
-  if (check.getUTCFullYear() !== y || check.getUTCMonth() !== m - 1 || check.getUTCDate() !== d) throw new Error('Invalid calendar date.');
-  const formatter = new Intl.DateTimeFormat('en-GB', {timeZone: zone, year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit', hourCycle:'h23'});
-  const parts = ms => Object.fromEntries(formatter.formatToParts(new Date(ms)).filter(p => p.type !== 'literal').map(p => [p.type, Number(p.value)]));
-  const matches = new Set();
-  // Sampling either side of a clock change discovers both possible UTC offsets.
-  for (const probe of [naive - 86400000, naive, naive + 86400000]) {
-    const p = parts(probe);
-    const offset = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second) - probe;
-    const candidate = naive - offset;
-    const c = parts(candidate);
-    if (c.year === y && c.month === m && c.day === d && c.hour === h && c.minute === minute) matches.add(candidate);
-  }
-  if (matches.size !== 1) throw new Error('Session time is ambiguous or nonexistent due to daylight saving time.');
-  return new Date([...matches][0]);
-}
-
 export function makePlan(club, html, now = new Date()) {
   const enabled = club.reminders?.enabled === true;
   const username = club.reminders?.buttondownUsername || '';
   if (enabled && !usernameOK(username)) throw new Error('A valid Buttondown username is required before enabling reminders.');
   if (!club.next) return {enabled, username, sessionId: null, payload: null, ready: false};
   const next = club.next;
-  const clocks = next.time?.match(/\b(?:[01]\d|2[0-3]):[0-5]\d\b/g) || [];
-  if (clocks.length !== 1) throw new Error('next.time must contain exactly one 24-hour time.');
-  const start = localStart(next.date, clocks[0]);
-  const dateLabel = new Intl.DateTimeFormat('en-GB', {timeZone: ZONE, day:'numeric', month:'long', year:'numeric'}).format(start);
-  const display = `${dateLabel} ${clocks[0]} Copenhagen time`;
-  if (next.time !== display) throw new Error('next.date and next.time disagree. Use the full Copenhagen date and time.');
-  const remind = new Date(start.getTime() - LEAD);
+  const start = sessionStart(next);
+  const display = next.time;
+  const remind = reminderTime(next);
   const sessionId = Number.isInteger(next.discussionIssue) ? `discussion-${next.discussionIssue}` : `date-${next.date}`;
   const zoom = html.match(/href="(https:\/\/dtudk\.zoom\.us\/j\/[^"<>\s]+)"/)?.[1]?.replaceAll('&amp;', '&');
   if (!zoom) throw new Error('A Zoom join link is required in index.html.');
-  const body = `<h2>AI Frontier Reading Club starts in 30 minutes</h2>\n<p><strong>${escape(next.title)}</strong></p>\n<p><strong>When:</strong> ${escape(display)}<br><strong>Presenter:</strong> ${escape(next.speaker || 'Shuai Wang')}</p>\n<p><a href="${escape(zoom)}">Join the Zoom meeting</a></p>\n<p><a href="https://wangshuaiia.github.io/reading-club/#next">Session details and reading materials</a></p>\n<p>You are receiving this reminder because you confirmed your reading club email subscription. You can unsubscribe using the link in the email footer.</p>`;
-  const payload = {subject: `Starts in 30 minutes: ${next.title}`, body, status:'scheduled', publish_date: remind.toISOString(), archival_mode:'disabled', commenting_mode:'disabled', metadata:{reading_club: MARKER, session_id: sessionId}};
+  const event = calendarEvent(next,zoom);
+  const links = calendarLinks(event);
+  const body = `<h2>Save the date: AI Frontier Reading Club</h2>
+<p><strong>${escape(next.title)}</strong></p>
+<p><strong>When:</strong> ${escape(display)}<br><strong>Presenter:</strong> ${escape(next.speaker || 'Shuai Wang')}</p>
+<p>Add the session to your calendar, review the details, and save:</p>
+<p><a href="${escape(links.outlook)}">Add to Outlook (work or school)</a><br><a href="${escape(links.outlookPersonal)}">Add to Outlook.com (personal)</a><br><a href="${escape(links.google)}">Add to Google Calendar</a><br><a href="${escape(links.ics)}">Download calendar event (.ics) for Outlook, Apple Calendar, and other apps</a></p>
+<p>The calendar slot is ${event.duration} minutes. The .ics file includes a reminder 30 minutes before the session. Check the reminder and notification settings in your calendar after saving.</p>
+<p><a href="${escape(zoom)}">Join the Zoom meeting</a></p>
+<p><a href="https://wangshuaiia.github.io/reading-club/#next">Session details and reading materials</a></p>
+<p>You are receiving this invitation because you confirmed your reading club email subscription. Invitations are scheduled one week before each session at 15:00 Copenhagen time. You can unsubscribe using the link in the email footer.</p>`;
+  const payload = {subject: `Next week: ${next.title}`, body, status:'scheduled', publish_date: remind.toISOString(), archival_mode:'disabled', commenting_mode:'disabled', metadata:{reading_club: MARKER, session_id: sessionId}};
   return {enabled, username, sessionId, start: start.toISOString(), remindAt: remind.toISOString(), ready: remind.getTime() > now.getTime() + 120000, payload};
 }
 
@@ -116,9 +101,12 @@ export async function syncReminder(plan, request, clock = () => new Date()) {
   const emails = await listPages(request, 'emails?source=api');
   const owned = emails.filter(e => e.metadata?.reading_club === MARKER);
   const current = owned.filter(e => e.metadata.session_id === plan.sessionId && e.status !== 'deleted');
+  let withdrawn=0;
   const cancel = async email => {
     if (!/^[\w-]+$/.test(email.id || '')) throw new Error('Invalid email ID.');
-    await request('PATCH', `emails/${email.id}`, {status:'draft'}, email.modification_date || email.status);
+    const result=await request('PATCH', `emails/${email.id}`, {status:'draft'}, email.modification_date || email.status);
+    if (result?.status !== 'draft') throw new Error('The provider did not confirm withdrawal of a scheduled reminder.');
+    withdrawn++;
   };
   // Withdraw superseded schedules, but never alter unrelated newsletter messages.
   for (const email of owned) if (email.status === 'scheduled' && (!plan.enabled || email.metadata.session_id !== plan.sessionId)) await cancel(email);
@@ -134,7 +122,7 @@ export async function syncReminder(plan, request, clock = () => new Date()) {
     for (const email of pending) {
       if (email.status === 'scheduled' && Date.parse(email.publish_date) > timeNow() && Date.parse(email.publish_date) !== Date.parse(plan.remindAt)) await cancel(email);
     }
-    return {state:'deadline_passed_or_too_close', scheduledAt:null};
+    return {state:'deadline_passed_or_too_close', scheduledAt:null, withdrawn};
   }
   let email = pending[0];
   if (!email) {
@@ -143,7 +131,7 @@ export async function syncReminder(plan, request, clock = () => new Date()) {
   }
   if (!/^[\w-]+$/.test(email?.id || '')) throw new Error('Buttondown did not return a valid email ID.');
   // API reads/creation may have taken time. Recheck before enabling a real send.
-  if (tooLate()) return {state:'deadline_passed_or_too_close', scheduledAt:null};
+  if (tooLate()) return {state:'deadline_passed_or_too_close', scheduledAt:null, withdrawn};
   const unchanged = email.status === 'scheduled' && email.subject === plan.payload.subject && email.body === plan.payload.body && Date.parse(email.publish_date) === Date.parse(plan.remindAt);
   if (!unchanged) await request('PATCH', `emails/${email.id}`, plan.payload, email.modification_date || email.status);
   return {state:unchanged ? 'unchanged' : 'scheduled', scheduledAt:plan.remindAt};
@@ -167,7 +155,7 @@ async function main() {
   if (!usernameOK(plan.username)) throw new Error('Configure the Buttondown username before synchronizing.');
   const result = await syncReminder(plan, makeClient(process.env.BUTTONDOWN_API_KEY));
   console.log(JSON.stringify(result));
-  if (result.state === 'deadline_passed_or_too_close') console.warn('::warning::The 30-minute reminder deadline has passed or is less than two minutes away. No new email was scheduled.');
+  if (result.state === 'deadline_passed_or_too_close') console.warn('::warning::The one-week 15:00 Copenhagen invitation deadline has passed or is less than two minutes away. No catch-up email was scheduled; obsolete future reminders were withdrawn.');
   if (result.state === 'already_sent_or_requires_review') console.warn('::warning::A reminder was already sent, queued, paused, or errored. Review Buttondown; no repeat was sent.');
 }
 

@@ -1,0 +1,30 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AI Frontier Reading Club//Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:session-7@wangshuaiia.github.io
+DTSTAMP:20261104T094021Z
+DTSTART:20261105T160000Z
+DTEND:20261105T170000Z
+SUMMARY:AI Frontier Reading Club: LLM Agents: Recursive Self-Improvement (R
+ SI)
+DESCRIPTION:AI Frontier Reading Club\nLLM Agents: Recursive Self-Improvemen
+ t (RSI)\nWhen: 5 November 2026 17:00 Copenhagen time\nPresenter: Shuai Wan
+ g\nJoin Zoom: https://dtudk.zoom.us/j/64067537122?pwd=LUdQiLjUo6qZZYHoExCi
+ X7JU99CZRa.1\nReading: https://arxiv.org/abs/2610.14224\nWebsite: https://
+ wangshuaiia.github.io/reading-club/\nCalendar slot: 60 minutes. Check your
+  calendar notification settings after saving.
+LOCATION:https://dtudk.zoom.us/j/64067537122?pwd=LUdQiLjUo6qZZYHoExCiX7JU99
+ CZRa.1
+URL:https://wangshuaiia.github.io/reading-club/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT30M
+DESCRIPTION:AI Frontier Reading Club starts in 30 minutes
+END:VALARM
+END:VEVENT
+END:VCALENDAR
