@@ -1,10 +1,10 @@
 # Activate email reminders
 
-Status: code is prepared; the email account and API key are not connected yet. The website currently shows a disabled **Coming soon** form, so nobody can mistake a form submission for an active subscription.
+Status: subscriptions are configured for [AI Frontier Reading Club](https://buttondown.com/ShuaiWang), with `reminders.enabled` set to `true`. The owner has saved `BUTTONDOWN_API_KEY` in GitHub Actions secrets. Check the activation commit's workflow result and complete the inbox confirmation check below before announcing the feature.
 
 ## One-time account setup
 
-1. Register a dedicated newsletter at [Buttondown](https://buttondown.com/). Suggested name: **AI Frontier Reading Club**. Suggested username: **ai-frontier-reading-club**, if available. Use the Free plan; do not add paid features. The current [pricing page](https://buttondown.com/pricing) lists the first 100 active subscribers as free. Review the plan if the audience grows beyond that limit.
+1. Register a dedicated newsletter at [Buttondown](https://buttondown.com/). Suggested name: **AI Frontier Reading Club**. The configured public username is **ShuaiWang**. Use the Free plan; do not add paid features. The current [pricing page](https://buttondown.com/pricing) lists the first 100 active subscribers as free. Review the plan if the audience grows beyond that limit.
 2. Complete the account's email/sender verification and any required newsletter approval. Set the sender name to **AI Frontier Reading Club** and the description to “Email reminders 30 minutes before our reading club sessions.” Keep double opt-in enabled. Keep Buttondown's default unsubscribe footer.
 3. Create an API key for this dedicated newsletter. Prefer a separate key with email read/write, sending access, and newsletter settings read access; subscriber access is not needed. The script checks the newsletter username before changing messages. See [API authentication and key permissions](https://docs.buttondown.com/api-authentication).
 4. In this repository's [Actions secrets](https://github.com/Wangshuaiia/reading-club/settings/secrets/actions), create a repository secret named `BUTTONDOWN_API_KEY`. Paste the key directly into GitHub. Do not put it in chat, `content.js`, an issue, a screenshot, or any other public file.

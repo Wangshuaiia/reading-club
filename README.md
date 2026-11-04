@@ -154,7 +154,7 @@ Google Scholar: <https://scholar.google.com/citations?user=w-ecPmgAAAAJ&hl=en>.
 
 ## Email reminders
 
-The **Never miss a session** form is in **Join the Reading Club**. The interface and automated scheduling code are installed, but subscriptions stay disabled until a Buttondown newsletter and GitHub Actions secret are connected. The visible “Coming soon” state does not accept or store email addresses.
+The **Never miss a session** form is in **Join the Reading Club** and connects to the dedicated Buttondown newsletter **ShuaiWang**. Subscribers must confirm their email address before reminders become active. The scheduler uses the repository Actions secret `BUTTONDOWN_API_KEY`; no secret belongs in website files.
 
 See [REMINDERS_SETUP.md](REMINDERS_SETUP.md) for the one-time activation steps and checks. Buttondown manages confirmed email subscriptions and unsubscribe links; addresses are never saved in this repository. Its native scheduler targets 30 minutes before each announced session, with Copenhagen daylight saving handled automatically. Email delivery can take additional time.
 

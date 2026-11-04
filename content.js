@@ -89,8 +89,8 @@ window.READING_CLUB = {
   ],
   "discussionRepo": "Wangshuaiia/reading-club",
   "reminders": {
-    "enabled": false,
-    "buttondownUsername": ""
+    "enabled": true,
+    "buttondownUsername": "ShuaiWang"
   },
   "analytics": {
     "enabled": true,
