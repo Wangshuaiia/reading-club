@@ -1,0 +1,53 @@
+name: Schedule reading club reminders
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - content.js
+      - index.html
+      - subscription.js
+      - scripts/schedule-reminder.mjs
+      - tests/reminders.test.mjs
+      - .github/workflows/email-reminders.yml
+  schedule:
+    # Reconcile in advance. Buttondown, not this cron, performs the timed send.
+    - cron: '17 3,15 * * *'
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Synchronize the real Buttondown schedule (otherwise preview only)'
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reading-club-email-reminders
+  cancel-in-progress: false
+
+jobs:
+  schedule:
+    if: github.repository == 'Wangshuaiia/reading-club'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Test scheduling and subscription safeguards
+        run: node --test tests/reminders.test.mjs
+      - name: Preview the next reminder
+        run: node scripts/schedule-reminder.mjs --check
+      - name: Synchronize the provider schedule
+        if: github.event_name != 'workflow_dispatch' || inputs.apply
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+        run: node scripts/schedule-reminder.mjs --apply

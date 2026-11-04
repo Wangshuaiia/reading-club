@@ -15,6 +15,7 @@ reading-club/
 ├── app.js           # Content rendering, English date formatting, and search
 ├── discussion.js    # Session discussions and public GitHub comments
 ├── analytics.js     # Private GoatCounter visit tracking
+├── subscription.js  # Native Buttondown subscription form activation
 ├── content.js       # Edit this file for regular content updates
 ├── .nojekyll        # Skip Jekyll processing
 ├── README.md
@@ -150,3 +151,11 @@ Official documentation: [Integration](https://www.goatcounter.com/help/start), [
 The **About the presenter** section in `index.html` contains a short English biography based on the supplied personal introduction. The complete original PDF is stored at `about/Shuai-Wang.pdf`. Replace that file to update the downloadable introduction, and update the HTML biography if your role or research interests change.
 
 Google Scholar: <https://scholar.google.com/citations?user=w-ecPmgAAAAJ&hl=en>.
+
+## Email reminders
+
+The **Never miss a session** form is in **Join the Reading Club**. The interface and automated scheduling code are installed, but subscriptions stay disabled until a Buttondown newsletter and GitHub Actions secret are connected. The visible “Coming soon” state does not accept or store email addresses.
+
+See [REMINDERS_SETUP.md](REMINDERS_SETUP.md) for the one-time activation steps and checks. Buttondown manages confirmed email subscriptions and unsubscribe links; addresses are never saved in this repository. Its native scheduler targets 30 minutes before each announced session, with Copenhagen daylight saving handled automatically. Email delivery can take additional time.
+
+The workflow reconciles schedules when `content.js` changes and twice daily. It updates an existing reminder after a change, withdraws superseded schedules, and does not resend a reminder already sent or queued. `node --test tests/reminders.test.mjs` checks time zones, deduplication, cancellations, failures and form activation without sending emails.
