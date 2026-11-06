@@ -5,19 +5,24 @@ window.READING_CLUB = {
   "description": "Every two weeks, read a little deeper.",
   "demo": false,
   "next": {
-    "date": "2026-11-05",
-    "title": "LLM Agents: Recursive Self-Improvement (RSI)",
+    "date": "2026-11-19",
+    "title": "Agent Design — Towards More Autonomous Agents",
     "speaker": "Shuai Wang",
     "durationMinutes": 60,
-    "time": "5 November 2026 17:00 Copenhagen time",
+    "time": "19 November 2026 17:00 Copenhagen time",
     "location": "",
-    "summary": "Can LLM agents improve their own workflows?\nExplore Harness^2: Recursive Agent Harnessing for an Open World.\nLearn how agents adapt through two levels of recursive self-improvement.",
-    "readingLabel": "Read Harness^2",
-    "readingUrl": "https://arxiv.org/abs/2610.14224",
-    "references": [],
+    "summary": "How do we build more autonomous and proactive agents?\nExplore Super-agent design with the DeepSeek Harness team's recent article.\nTheir open-source prototype has attracted nearly 20K GitHub stars (6 November 2026).",
+    "readingLabel": "Read the article",
+    "readingUrl": "https://mp.weixin.qq.com/s/zoS7GlReWPhfCjENGxXCdg",
+    "references": [
+      {
+        "title": "GitHub: dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+      }
+    ],
     "slides": "",
     "pdf": "",
-    "discussionIssue": 7
+    "discussionIssue": 8
   },
   "archive": [
     {
@@ -86,6 +91,20 @@ window.READING_CLUB = {
       "slides": "",
       "pdf": "slides/ShuaiWang-DTU-1022.pdf",
       "discussionIssue": 1
+    },
+    {
+      "date": "2026-11-05",
+      "title": "LLM Agents: Recursive Self-Improvement (RSI)",
+      "speaker": "Shuai Wang",
+      "time": "5 November 2026 17:00 Copenhagen time",
+      "location": "",
+      "summary": "",
+      "readingLabel": "Read Harness^2",
+      "readingUrl": "https://arxiv.org/abs/2610.14224",
+      "references": [],
+      "slides": "",
+      "pdf": "slides/ShuaiWang-DTU-1105.pdf",
+      "discussionIssue": 7
     }
   ],
   "discussionRepo": "Wangshuaiia/reading-club",
