@@ -12,8 +12,8 @@ window.READING_CLUB = {
     "time": "19 November 2026 17:00 Copenhagen time",
     "location": "",
     "summary": "How do we build more autonomous and proactive agents?\nExplore Super-agent design with the DeepSeek Harness team's recent article.\nTheir open-source prototype has attracted nearly 20K GitHub stars (6 November 2026).",
-    "readingLabel": "Read the article",
-    "readingUrl": "https://mp.weixin.qq.com/s/zoS7GlReWPhfCjENGxXCdg",
+    "readingLabel": "Read the English docs",
+    "readingUrl": "https://github.com/deepseek-ai/dsh-superagent-prototype/tree/main/docs",
     "references": [
       {
         "title": "GitHub: dsh-superagent-prototype",

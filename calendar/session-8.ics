@@ -5,7 +5,7 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:session-8@wangshuaiia.github.io
-DTSTAMP:20261106T101721Z
+DTSTAMP:20261106T131951Z
 DTSTART:20261119T160000Z
 DTEND:20261119T170000Z
 SUMMARY:AI Frontier Reading Club: Agent Design — Towards More Autonomous 
@@ -13,9 +13,10 @@ SUMMARY:AI Frontier Reading Club: Agent Design — Towards More Autonomous
 DESCRIPTION:AI Frontier Reading Club\nAgent Design — Towards More Autonom
  ous Agents\nWhen: 19 November 2026 17:00 Copenhagen time\nPresenter: Shuai
   Wang\nJoin Zoom: https://dtudk.zoom.us/j/64067537122?pwd=LUdQiLjUo6qZZYHo
- ExCiX7JU99CZRa.1\nReading: https://mp.weixin.qq.com/s/zoS7GlReWPhfCjENGxXC
- dg\nWebsite: https://wangshuaiia.github.io/reading-club/\nCalendar slot: 6
- 0 minutes. Check your calendar notification settings after saving.
+ ExCiX7JU99CZRa.1\nReading: https://github.com/deepseek-ai/dsh-superagent-p
+ rototype/tree/main/docs\nWebsite: https://wangshuaiia.github.io/reading-cl
+ ub/\nCalendar slot: 60 minutes. Check your calendar notification settings 
+ after saving.
 LOCATION:https://dtudk.zoom.us/j/64067537122?pwd=LUdQiLjUo6qZZYHoExCiX7JU99
  CZRa.1
 URL:https://wangshuaiia.github.io/reading-club/
